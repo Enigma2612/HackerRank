@@ -1,0 +1,20 @@
+def print_rangoli(size):
+    width = size * 4 - 3
+    rows = size * 2 - 1
+    alpha_lis = [chr(97+i) for i in range(size)][::-1]
+    all_rows = []
+
+    for row in range(rows//2+1):
+        s = ['-']*width
+        for i in range(row+1):
+            s[width//2 + (row-i)*2] = alpha_lis[i]
+            s[width//2 - (row-i)*2] = alpha_lis[i]
+        all_rows.append(''.join(s))
+    
+    for r in all_rows + all_rows[::-1][1:]:
+        print(r)
+
+    
+if __name__ == '__main__':
+    n = int(input())
+    print_rangoli(n)
